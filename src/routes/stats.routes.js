@@ -5,6 +5,6 @@ const { protect, restrictTo } = require("../middlewares/auth.middleware");
 
 router.use(protect);
 
-router.get("/", restrictTo("admin", "manager"), statsController.getStats);
+router.get("/", restrictTo("admin", "manager","agent"), statsController.getStats);
 
 module.exports = router;

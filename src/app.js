@@ -36,7 +36,7 @@ app.use("/api/actions", require("./routes/actions.routes"));
 // ======================
 app.get("/", (req, res) => {
   res.send(
-    "API Recouvra+ fonctionne ✅. <br><a href='/api-docs'>Voir la documentation Swagger</a>"
+    "API Recouvra+ fonctionne . <br><a href='/api-docs'>Voir la documentation Swagger</a>"
   );
 });
 

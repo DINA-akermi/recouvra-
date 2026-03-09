@@ -11,7 +11,7 @@ router
   .route("/")
   .post(
     restrictTo("admin", "manager"),
-    validate(createFactureSchema),   // ✅ AJOUT ICI
+    validate(createFactureSchema),   
     factureController.createFacture
   )
   .get(factureController.getFactures);

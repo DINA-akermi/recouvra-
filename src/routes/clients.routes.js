@@ -3,7 +3,7 @@ const router = express.Router();
 const clientController = require("../controllers/Client.controller");
 const { protect, restrictTo } = require("../middlewares/auth.middleware");
 
-// Protéger toutes les routes
+
 router.use(protect);
 
 router
