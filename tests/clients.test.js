@@ -5,14 +5,14 @@ const Client = require("../src/models/Client");
 const { MongoMemoryServer } = require("mongodb-memory-server");
 
 let mongoServer;
-let token; // token d'auth pour routes protégées
+let token; 
 
 describe("Clients API", () => {
   beforeAll(async () => {
     mongoServer = await MongoMemoryServer.create();
     await mongoose.connect(mongoServer.getUri());
 
-    // Créer un utilisateur admin pour obtenir un token
+    
     const res = await request(app).post("/api/auth/register").send({
       name: "Admin Test",
       email: "admin@test.com",

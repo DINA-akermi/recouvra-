@@ -3,10 +3,10 @@ const Paiement = require("../models/Paiement");
 
 exports.getStats = async (req, res) => {
   try {
-    // Nombre total de factures
+    
     const totalFactures = await Facture.countDocuments();
 
-    // Montant total des factures
+   
     const montantGlobalResult = await Facture.aggregate([
       { $group: { _id: null, total: { $sum: "$montant" } } }
     ]);
@@ -14,7 +14,7 @@ exports.getStats = async (req, res) => {
     const montantGlobalFactures =
       montantGlobalResult.length > 0 ? montantGlobalResult[0].total : 0;
 
-    // Montant total des paiements
+    
     const montantPayeResult = await Paiement.aggregate([
       { $group: { _id: null, total: { $sum: "$montant" } } }
     ]);
@@ -22,11 +22,11 @@ exports.getStats = async (req, res) => {
     const montantTotalRecouvre =
       montantPayeResult.length > 0 ? montantPayeResult[0].total : 0;
 
-    // Reste à recouvrer
+  
     const resteARecouvrer =
       montantGlobalFactures - montantTotalRecouvre;
 
-    // Nombre de factures par statut
+    
     const statusCounts = await Facture.aggregate([
       { $group: { _id: "$statut", count: { $sum: 1 } } }
     ]);

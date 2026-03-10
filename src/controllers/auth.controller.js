@@ -10,7 +10,6 @@ const generateToken = (id, role) => {
   );
 };
 
-// REGISTER
 exports.register = async (req, res) => {
   try {
     const { name, email, password, role } = req.body;
